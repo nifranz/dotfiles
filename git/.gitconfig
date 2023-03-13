@@ -1,0 +1,10 @@
+[user]
+	name = niklasfranz
+	email = nf.app@icloud.com
+	adress = nf.app@icloud.com
+[email]
+	adress = nf.app@icloud.com
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
