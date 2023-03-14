@@ -4,4 +4,5 @@
 alias g="git"
 alias gitni="cd ~/Development/Projects/Git/github-nifranz/"
 alias gitup="cd ~/Development/Projects/Git/upgit-nifranz/"
-
+alias reload="source ~/.zshrc"
+alias ls="ls -al"
