@@ -4,15 +4,31 @@ ln -sv "~/.dotfiles/zsh/.zshrc" ~
 
 # install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# add brew repositories
 brew tap homebrew/cask-fonts
-brew install font-hack
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # install cli apps
-brew install neovim node python mysql php tree-sitter
+brew install git 
+brew install neovim 
+brew install node 
+brew install python
+brew install mysql 
+brew install php 
+brew install tree-sitter
 
 # install gui apps
-brew install --cask iterm2 visual-studio-code spotify brave-browser discord whatsapp notion
+brew install --cask iterm2
+brew install --cask visual-studio-code
+brew install --cask brave-browser
+brew install --cask spotify 
+brew install --cask discord
+brew install --cask whatsapp 
+brew install --cask notion 
+
+# install fonts
+brew install font-hack
 
