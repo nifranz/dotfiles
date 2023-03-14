@@ -14,5 +14,5 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 brew install neovim node python mysql php tree-sitter
 
 # install gui apps
-brew install --cask visual-studio-code spotify brave-browser discord whatsapp notion
+brew install --cask iterm2 visual-studio-code spotify brave-browser discord whatsapp notion
 
