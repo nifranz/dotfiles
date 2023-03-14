@@ -14,9 +14,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # install cli apps
 brew install git 
 brew install neovim 
-brew install node 
 brew install python
 brew install mysql 
+brew install node 
 brew install php 
 brew install tree-sitter
 
