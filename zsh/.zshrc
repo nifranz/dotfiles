@@ -111,7 +111,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
  alias zshconfig="nvim ~/.zshrc"
 # alias ohmyzsh="nvim ~/.oh-my-zsh"
-source ~/.dotfiles/zsh/.aliases
+
+# source custom config files
+source ~/.dotfiles/zsh/.source.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
