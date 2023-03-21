@@ -135,3 +135,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# source user paths
+source ~/.dotfiles/zsh/.paths.sh
