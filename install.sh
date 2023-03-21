@@ -2,6 +2,7 @@
 ln -sv "~/.dotfiles/git/.gitconfig" ~
 ln -sv "~/.dotfiles/zsh/.zshrc" ~
 ln -s "~/.dotfiles/nvim/astronvim_config/" "~/.config/nvim/lua/user"
+ln -s "~/.dotfiles/.npmrc" "~/.npmrc"
 
 # install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -32,4 +33,8 @@ brew install --cask notion
 
 # install fonts
 brew install font-hack
+
+# configuring npm 
+mkdir ~/.npm-packages
+
 
