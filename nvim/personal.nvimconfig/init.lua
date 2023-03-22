@@ -1,1 +1,3 @@
-print('init.lua loaded')
+require('plugins')
+require('base')
+require('theme')
