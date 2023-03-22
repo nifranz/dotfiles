@@ -47,3 +47,35 @@ function config() {
     break
   done
 }
+
+# Function nvimsw()
+# A function providing an easy way to switch beetween existing vim configurations 
+
+function nvimsw() {
+	dir="$HOME/.dotfiles/nvim" # the base dir where the nvim configs are stored
+	match=".nvimconfig"
+	nvimconfigs=()
+
+	# get all .nvimconfig directories in dir
+	for entry in "$dir"/*; do
+		if [ -d "$entry" ]; then
+			if echo "$entry" | grep -q "$match"; then
+				nvimconfigs+=("$entry")
+			fi
+		fi
+	done
+	
+	if [ ${nvimconfigs} -eq 0]; then
+		echo "No .nvimconfig directories found in $dir"
+	else 
+		echo "Select a .nvimconfig directory to switch to ... "
+		select nvimconfig in $nvimconfigs; do 
+			rm "$HOME/.config/nvim"
+			ln -s "$nvimconfig" "$HOME/.config/nvim"
+
+			echo "Sucessfully switched nvimconfig to $nvimconfig."
+			break
+		done
+	fi
+}
+
