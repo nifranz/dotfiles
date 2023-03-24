@@ -5,6 +5,8 @@ ln -s "~/.dotfiles/nvim/astronvim_config/" "~/.config/nvim/lua/user"
 ln -s "~/.dotfiles/.npmrc" "~/.npmrc"
 ln -s "~/.dotfiles/.vimrc" "~/.vimrc"
 ln -s "~/.dotfiles/nvim/personal.nvimconfig" "~/.config/nvim"
+ln -s "~/.dotfiles/.tmux.conf" "~/.tmux.conf"
+
 
 # install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

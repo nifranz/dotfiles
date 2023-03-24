@@ -79,3 +79,5 @@ function nvimsw() {
 	fi
 }
 
+# Function mk()
+# A function providing a shorter way to create directories and cd into it.
