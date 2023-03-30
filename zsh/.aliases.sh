@@ -3,6 +3,9 @@
 
 # command aliases
 alias g="git"
+alias gcm="git commit -m"
+alias ga="git add -A"
+alias gp="git push"
 alias reload="source ~/.zshrc"
 alias ndev="npm run dev"
 alias vim="nvim"
