@@ -6,6 +6,7 @@ alias g="git"
 alias reload="source ~/.zshrc"
 alias ndev="npm run dev"
 alias vim="nvim"
+alias re="tmux a"
 
 # exa aliases
 alias ls="exa -l -g --icons"
