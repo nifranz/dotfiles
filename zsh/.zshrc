@@ -113,8 +113,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="nvim ~/.zshrc"
 # alias ohmyzsh="nvim ~/.oh-my-zsh"
 
-# source custom config files
-source ~/.dotfiles/zsh/.source.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -136,5 +134,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-# source user paths
-source ~/.dotfiles/zsh/.paths.sh
+# source custom zsh config
+source ~/.dotfiles/zsh/.user.zshrc
