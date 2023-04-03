@@ -1,1 +1,0 @@
-/Users/niklas/.dotfiles/zsh/.p10k.zsh
