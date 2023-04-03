@@ -5,7 +5,7 @@
 [email]
 	adress = nf.app@icloud.com
 [core]
-	editor = nvim
+	editor = hx
 	excludesFile = ~/.dotfiles/git/.gitignore-global
 [init]
 	defaultBranch = main

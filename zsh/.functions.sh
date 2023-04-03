@@ -27,21 +27,21 @@ function config() {
     if [ $FILE = 'zsh' ]
     then
       echo zsh
-      nvim ~/.dotfiles/zsh/.zshrc
+      defaulteditor ~/.dotfiles/zsh/.zshrc
       break
     fi
 
     if [ $FILE = 'zsh aliases' ]
     then
       echo zsh
-      nvim ~/.dotfiles/zsh/.aliases.sh
+      defaulteditor ~/.dotfiles/zsh/.aliases.sh
       break
     fi
 
     if [ $FILE = 'zsh functions' ]
     then
       echo zsh
-      nvim ~/.dotfiles/zsh/.functions.sh
+      defaulteditor ~/.dotfiles/zsh/.functions.sh
       break
     fi
     break

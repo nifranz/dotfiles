@@ -2,6 +2,8 @@
 # This file defines aliases sourced by /bin/zsh
 
 # command aliases
+alias defaulteditor="code"
+alias vsc="code"
 alias g="git"
 alias gcm="git commit -m"
 alias ga="git add -A"
@@ -10,6 +12,7 @@ alias reload="source ~/.zshrc"
 alias ndev="npm run dev"
 alias vim="nvim"
 alias re="tmux a"
+alias tmuxreload="tmux source ~/.dotfiles/.tmux/.tmux.conf"
 
 # exa aliases
 alias ls="exa -l -g --icons"
