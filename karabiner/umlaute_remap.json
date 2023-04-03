@@ -1,0 +1,276 @@
+{
+  "title": "ö/Ö', 'ä/Ä', 'ü/Ü' remaps ('[', ']', '{', '}', '|', 'backslash')",
+  "rules": [
+    {
+      "description": "'ctr-ö' -> 'ö'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            },
+            "key_code": "semicolon"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "semicolon",
+              "modifiers": [
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'ctr-ä' -> 'ä'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            },
+            "key_code": "quote"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "quote",
+              "modifiers": [
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'ctr-ü' -> 'ü'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            },
+            "key_code": "open_bracket"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "open_bracket",
+              "modifiers": [
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'ctr-shift-ö' -> 'Ö'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ]
+            },
+            "key_code": "semicolon"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "semicolon",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'ctr-shift-ä' -> 'Ä'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ]
+            },
+            "key_code": "quote"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "quote",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'ctr-shift-ü' -> 'Ü'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ]
+            },
+            "key_code": "open_bracket"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "open_bracket",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'ö' -> '['",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "semicolon" },
+          "to": [{ "repeat": true, "key_code": "5", "modifiers": ["left_alt"] }]
+        }
+      ]
+    },
+    {
+      "description": "'ä' -> ']'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "quote" },
+          "to": [{ "repeat": true, "key_code": "6", "modifiers": ["left_alt"] }]
+        }
+      ]
+    },
+    {
+      "description": "'shift-ö' -> '{'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            },
+            "key_code": "semicolon"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "8",
+              "modifiers": [
+                "left_alt"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'shift-ä' -> '}'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            },
+            "key_code": "quote"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "9",
+              "modifiers": [
+                "left_alt"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'ü' -> '|'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+              ]
+            },
+            "key_code": "open_bracket"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "7",
+              "modifiers": [
+                "left_alt",
+                "left_control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'shift-ü' -> 'backslash'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            },
+            "key_code": "open_bracket"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "7",
+              "modifiers": [
+                "left_alt",
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

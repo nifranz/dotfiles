@@ -83,6 +83,8 @@ plugins=(
 	iterm2
 	exa-zsh
 	z
+    vscode
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -136,3 +138,6 @@ unset __conda_setup
 
 # source custom zsh config
 source ~/.dotfiles/zsh/.user.zshrc
+
+# To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
+[[ ! -f ~/.dotfiles/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.p10k.zsh
