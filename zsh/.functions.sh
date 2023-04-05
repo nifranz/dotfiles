@@ -19,6 +19,7 @@ function sshc() {
 # Function: config()
 # A function defining a shortcut for opening commonly used config files with nvim.
 function config() {
+
   echo Select a config file to open:
   config_files=('zsh' 'zsh aliases' 'zsh functions')
 
