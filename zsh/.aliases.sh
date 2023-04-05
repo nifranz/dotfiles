@@ -13,6 +13,7 @@ alias ndev="npm run dev"
 alias vim="nvim"
 alias re="tmux a"
 alias tmuxreload="tmux source ~/.dotfiles/.tmux/.tmux.conf"
+alias karabiner="'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli'"
 
 # exa aliases
 alias ls="exa -l -g --icons"
