@@ -96,7 +96,7 @@ rm "$HOME/.tmux.conf"
 ln -sv "$HOME/.dotfiles/.tmux" "$HOME/.tmux"
 ln -sv "$HOME/.dotfiles/.tmux/.tmux.conf" "$HOME/.tmux.conf"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-sh -c "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
+sh -c "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh"
 
 echo "configuring helix"
 ln -sv "$HOME/.dotfiles/helix-editor/config.toml" "$HOME/.config/helix/config.toml"
