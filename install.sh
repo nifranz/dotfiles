@@ -94,8 +94,9 @@ echo "configuring tmux"
 rm -r "$HOME/.tmux"
 rm "$HOME/.tmux.conf"
 ln -sv "$HOME/.dotfiles/.tmux" "$HOME/.tmux"
-ln -sv "$HOME/.dotfiles/.tmux.conf" "$HOME/.tmux.conf"
+ln -sv "$HOME/.dotfiles/.tmux/.tmux.conf" "$HOME/.tmux.conf"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+sh -c "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
 
 echo "configuring helix"
 ln -sv "$HOME/.dotfiles/helix-editor/config.toml" "$HOME/.config/helix/config.toml"
@@ -108,7 +109,6 @@ ln -sv "$HOME/.dotfiles/.npmrc" "$HOME/.npmrc"
 echo "\nAll installations done. For the changes to take effect, please exit and reopen your terminal.\n"
 
 echo "A powerline10k configuration file has been copied to your home directory. If you want to configure p10k yourself, please execute 'p10k configure'".
-echo "To ensure all tmux plugins are loaded and installed onto your machine, execute 'prefix + I' in tmux."
 
 if [[ $(uname) = "Darwin" ]]; then
     echo "To enable custom karabiner keymaps, please activate them in karabiner complex keymap section."
