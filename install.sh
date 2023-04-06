@@ -12,6 +12,8 @@ if [[ $(uname) = "Darwin" ]]; then
     echo "install cli apps"
     brew install git 
     brew install tmux
+    brew install exa
+    brew install z
     brew install neovim 
     brew install helix
     brew install node 
@@ -43,9 +45,13 @@ if [[ $(uname) = "Darwin" ]]; then
 elif [[ $(uname) = "Linux" ]]; then
     # Installing dependencies on Linux with apt-get
 
+    echo "installing for"
+
     sudo apt-get install zsh
-    sudo apt-get install git
     sudo apt-get install tmux
+    sudo apt-get install exa
+    sudo apt-get install z
+    sudo apt-get install git
     sudo apt-get install neovim 
     sudo apt-get install helix
     sudo apt-get install node 
@@ -61,39 +67,48 @@ else
 fi
 
 echo "configuring zsh ..."
+echo "linking configurations"
+ln -sv "$HOME/.dotfiles/zsh/.zshrc" "$HOME/.zshrc"
+ln -sv "$HOME/.dotfiles/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
+
 echo "installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+exit 
 
 echo "installing custom oh-my-zsh plugins"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/MohamedElashri/exa-zsh ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/exa-zsh
 
 echo "installing custom oh-my-zsh themes"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-echo "linking configurations"
-ln -sv "~/.dotfiles/zsh/.zshrc" "~"
-ln -sv "~/.dotfiles/zsh/.p10k.zsh" "~"
-
 echo "zsh configuration done!"
 
 echo "configuring git"
-ln -sv "~/.dotfiles/git/.gitconfig" ~
+rm "$HOME/.gitconfig"
+ln -sv "$HOME/.dotfiles/git/.gitconfig" "$HOME/.gitconfig"
 
 echo "configuring tmux"
-ln -sv "~/.dotfiles/.tmux" "~/.tmux"
+rm -r "$HOME/.tmux"
+rm "$HOME/.tmux.conf"
+ln -sv "$HOME/.dotfiles/.tmux" "$HOME/.tmux"
+ln -sv "$HOME/.dotfiles/.tmux.conf" "$HOME/.tmux.conf"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "configuring helix"
-ln -sv "~/.dotfiles/helix-editor/config.toml" "~/.config/helix/config.toml"
+ln -sv "$HOME/.dotfiles/helix-editor/config.toml" "$HOME/.config/helix/config.toml"
 
 echo "configuring npm"
-mkdir ~/.npm-packages
-ln -sv "~/.dotfiles/.npmrc" "~/.npmrc"
-
+mkdir $HOME/.npm-packages
+ln -sv "$HOME/.dotfiles/.npmrc" "$HOME/.npmrc"
 
 
 echo "\nAll installations done. For the changes to take effect, please exit and reopen your terminal.\n"
 
 echo "A powerline10k configuration file has been copied to your home directory. If you want to configure p10k yourself, please execute 'p10k configure'".
-echo "To enable custom karabiner keymaps, please activate them in karabiner complex keymap section."
 echo "To ensure all tmux plugins are loaded and installed onto your machine, execute 'prefix + I' in tmux."
-echo "To configure iterm, import the profile 'iterm2/iterm2-profile.json' as well as the preferred color theme from 'iterm2/colors' in the iterm-gui."
+
+if [[ $(uname) = "Darwin" ]]; then
+    echo "To enable custom karabiner keymaps, please activate them in karabiner complex keymap section."
+    echo "To configure iterm, import the profile 'iterm2/iterm2-profile.json' as well as the preferred color theme from 'iterm2/colors' in the iterm-gui."
+fi
