@@ -1,5 +1,4 @@
 # Installing dependencies
-
 if [[ $(uname) = "Darwin" ]]; then
     # Installing dependencies on macOS with homebrew
     echo "installing brew"
@@ -36,6 +35,7 @@ if [[ $(uname) = "Darwin" ]]; then
     # macos specific configurations
 
     echo "Setting macOS defaults..."
+    sudo chmod +x ~/.dotfiles/macos-defaults.sh
     ~/.dotfiles/macos-defaults.sh
 
     echo "linking karabiner keymaps"
@@ -68,7 +68,6 @@ fi
 
 echo "configuring zsh ..."
 echo "linking configurations"
-
 
 echo "installing oh-my-zsh"
 export RUNZSH=no
