@@ -1,5 +1,62 @@
-if [[ $(uname) != "Darwin" ]]; then
-    echo "This script can only be executed on macOS"
+# Installing dependencies
+
+if [[ $(uname) = "Darwin" ]]; then
+    # Installing dependencies on macOS with homebrew
+    echo "installing brew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    echo "adding additional brew repositories"
+    /bin/bash -c "brew tap homebrew/cask-fonts"
+
+    echo "installing apps with brew ..."
+    echo "install cli apps"
+    brew install git 
+    brew install tmux
+    brew install neovim 
+    brew install helix
+    brew install node 
+    brew install mysql 
+    brew install php
+
+    echo "installing gui apps with brew ..."
+    brew install --cask iterm2
+    brew install --cask visual-studio-code
+    brew install --cask karabiner-elements
+
+    echo "installing fonts ..."
+    brew install font-hack
+
+    # echo "installing other GUI Apps with homebrew ..."
+    # ~/.dotfiles/install-apps.sh
+
+    echo "Homebrew installation done!"
+
+    # macos specific configurations
+
+    echo "Setting macOS defaults..."
+    ~/.dotfiles/macos-defaults.sh
+
+    echo "linking karabiner keymaps"
+    ln -sv "~/.dotfiles/karabiner/umlaute_remap.json" "~/.config/karabiner/assets/complex_modifications/umlaute_remap.json"
+
+
+elif [[ $(uname) = "Linux" ]]; then
+    # Installing dependencies on Linux with apt-get
+
+    sudo apt-get install zsh
+    sudo apt-get install git
+    sudo apt-get install tmux
+    sudo apt-get install neovim 
+    sudo apt-get install helix
+    sudo apt-get install node 
+    sudo apt-get install mysql 
+    sudo apt-get install php
+
+    sudo apt-get install code
+
+    sudo apt-get install fonts-hack-ttf
+else
+    echo "Your operating system is not supported. Exiting."
     exit 1
 fi
 
@@ -19,33 +76,6 @@ ln -sv "~/.dotfiles/zsh/.p10k.zsh" "~"
 
 echo "zsh configuration done!"
 
-echo "configuring Homebrew ..."
-echo "installing brew"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-echo "adding additional brew repositories"
-brew tap homebrew/cask-fonts
-
-echo "installing apps with brew ..."
-echo "install cli apps"
-brew install git 
-brew install tmux
-brew install neovim 
-brew install helix
-brew install mysql 
-brew install node 
-brew install php 
-
-echo "installing gui apps with brew ..."
-brew install --cask iterm2
-brew install --cask visual-studio-code
-brew install --cask karabiner-elements
-
-echo "installing fonts ..."
-brew install font-hack
-
-echo "Homebrew configuration done!"
-
 echo "configuring git"
 ln -sv "~/.dotfiles/git/.gitconfig" ~
 
@@ -59,15 +89,7 @@ echo "configuring npm"
 mkdir ~/.npm-packages
 ln -sv "~/.dotfiles/.npmrc" "~/.npmrc"
 
-echo "linking karabiner keymaps"
-ln -sv "~/.dotfiles/karabiner/umlaute_remap.json" "~/.config/karabiner/assets/complex_modifications/umlaute_remap.json"
 
-echo "Executing macOS defaults configuration script"
-~/.dotfiles/macos-defaults.sh
-
-echo "installing other GUI Apps with homebrew ..."
-~/.dotfiles/install-apps.sh
-echo "other GUI apps installation done!"
 
 echo "\nAll installations done. For the changes to take effect, please exit and reopen your terminal.\n"
 
