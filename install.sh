@@ -45,7 +45,7 @@ if [[ $(uname) = "Darwin" ]]; then
 elif [[ $(uname) = "Linux" ]]; then
     # Installing dependencies on Linux with apt-get
 
-    echo "installing for"
+    echo "installing for linux"
 
     sudo apt-get install zsh
     sudo apt-get install tmux
@@ -72,6 +72,7 @@ ln -sv "$HOME/.dotfiles/zsh/.zshrc" "$HOME/.zshrc"
 ln -sv "$HOME/.dotfiles/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 
 echo "installing oh-my-zsh"
+export RUNZSH=no
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 exit 
 
