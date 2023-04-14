@@ -92,8 +92,8 @@ ln -sv "$HOME/.dotfiles/git/.gitconfig" "$HOME/.gitconfig"
 echo "configuring tmux"
 rm -r "$HOME/.tmux"
 rm "$HOME/.tmux.conf"
-ln -sv "$HOME/.dotfiles/.tmux" "$HOME/.tmux"
-ln -sv "$HOME/.dotfiles/.tmux/.tmux.conf" "$HOME/.tmux.conf"
+ln -sv "$HOME/.dotfiles/tmux" "$HOME/.tmux"
+ln -sv "$HOME/.dotfiles/tmux/tmux.conf" "$HOME/.tmux.conf"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sh -c "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh"
 
