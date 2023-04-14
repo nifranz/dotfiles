@@ -6,7 +6,7 @@
 	adress = nf.app@icloud.com
 [core]
 	editor = hx
-	excludesFile = ~/.dotfiles/git/.gitignore-global
+	excludesFile = ~/.dotfiles/git/.gitignore
 [init]
 	defaultBranch = main
 [pull]
