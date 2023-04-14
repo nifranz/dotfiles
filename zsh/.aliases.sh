@@ -15,6 +15,7 @@ alias vim="nvim"
 alias re="tmux a"
 alias tmuxreload="tmux source ~/.dotfiles/.tmux/.tmux.conf"
 alias karabiner="'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli'"
+alias vm="vboxmanage"
 
 # exa aliases
 alias ls="exa -l -g --icons"
