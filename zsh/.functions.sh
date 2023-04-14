@@ -82,3 +82,12 @@ function nvimsw() {
 
 # Function mk()
 # A function providing a shorter way to create directories and cd into it.
+
+function mk() {
+    if [ $# -ne 1 ]; then
+        echo "One and only one filepath is required"
+    else
+        mkdir $1;
+        cd $1;
+    fi
+}
