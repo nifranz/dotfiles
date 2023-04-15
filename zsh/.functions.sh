@@ -2,11 +2,12 @@
 # This file defines shell functions sourced by /bin/zsh
 
 # Function: sshc()
-# A function defining a shortcut for opening a ssh connection to commonly used hosts
+# A function defining a shortcut for opening a ssh connection to Hosts definied in ~/.ssh/config
 function sshc() {
   echo Select a host to connect to: "\a"
-
-  hosts=('niklas@Eragon' 'nifranz@141.89.39.93')
+  config=$(cat ~/.ssh/config)
+  hosts=($(echo "$config" | grep "^Host " | awk '{print $2}'))
+  echo "${hosts[@]}"
 
   select ITEM in $hosts
   do
