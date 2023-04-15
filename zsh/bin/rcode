@@ -1,0 +1,9 @@
+#!/bin/zsh
+# File: zsh/bin/rcode
+# This file contains a function that executes a command to open a vscode window at a remote location. 
+# Usage: rcode --r [ssh-host] [path-to-directory]
+if [ $# -ne 2 ]; then
+    echo "usage: rcode [ssh-host] [path-to-directory]"
+else
+    code --folder-uri vscode-remote://ssh-remote+$1$2
+fi
