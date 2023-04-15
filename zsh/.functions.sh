@@ -25,27 +25,28 @@ function config() {
 
   select FILE in $config_files
   do
-    if [ $FILE = 'zsh' ]
-    then
-      echo zsh
-      defaulteditor ~/.dotfiles/zsh/.zshrc
-      break
+    echo "Select an editor:"
+    editors=('nvim' 'code' 'nano')
+
+    select e in $editors; do
+      editor=$e
+      break;
+    done
+    if [ $FILE = 'zsh' ]; then
+      filePath="$HOME/.dotfiles/zsh/.zshrc"
+
+    elif [ $FILE = 'zsh aliases' ]; then
+      filePath="$HOME/.dotfiles/zsh/.aliases.sh"
+
+    elif [ $FILE = 'zsh functions' ]; then
+      filePath="$HOME/.dotfiles/zsh/.functions.sh"
+
     fi
 
-    if [ $FILE = 'zsh aliases' ]
-    then
-      echo zsh
-      defaulteditor ~/.dotfiles/zsh/.aliases.sh
-      break
-    fi
-
-    if [ $FILE = 'zsh functions' ]
-    then
-      echo zsh
-      defaulteditor ~/.dotfiles/zsh/.functions.sh
-      break
-    fi
-    break
+    echo "Opening $filePath with $editor ..."
+    sh -c "$editor $filePath"
+    echo "Done!"
+    break;
   done
 }
 
@@ -91,3 +92,8 @@ function mk() {
         cd $1;
     fi
 }
+
+# Function rcode() 
+# A function providing an easy way to open a remote folder in vscode from the cli
+
+
