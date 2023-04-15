@@ -17,6 +17,7 @@ alias tmuxreload="tmux source ~/.dotfiles/.tmux/.tmux.conf"
 alias karabiner="'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli'"
 alias vm="vboxmanage"
 alias rmnode="rm -rf package-lock.json package.json node_modules"
+alias chx="chmod +x"
 
 # exa aliases
 alias ls="exa -l -g --icons"
