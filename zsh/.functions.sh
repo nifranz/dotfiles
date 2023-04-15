@@ -22,7 +22,7 @@ function sshc() {
 function config() {
 
   echo Select a config file to open:
-  config_files=('zsh' 'zsh aliases' 'zsh functions')
+  config_files=('zsh' 'zsh aliases' 'zsh functions' 'ssh hosts')
 
   select FILE in $config_files
   do
@@ -42,6 +42,8 @@ function config() {
     elif [ $FILE = 'zsh functions' ]; then
       filePath="$HOME/.dotfiles/zsh/.functions.sh"
 
+    elif [ $FILE = 'ssh hosts' ]; then
+      filePath="$HOME/.ssh/config"
     fi
 
     echo "Opening $filePath with $editor ..."
