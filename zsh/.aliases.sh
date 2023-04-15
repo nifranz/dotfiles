@@ -18,6 +18,7 @@ alias karabiner="'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/k
 alias vm="vboxmanage"
 alias rmnode="rm -rf package-lock.json package.json node_modules"
 alias chx="chmod +x"
+alias rvsc="rcode"
 
 # exa aliases
 alias ls="exa -l -g --icons"
