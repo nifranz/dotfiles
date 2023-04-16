@@ -25,8 +25,8 @@ alias o="open ."
 alias ls="exa -l -g --icons"
 alias lsa="exa -a -l -g --icons"
 
-alias ll="exa -l -g --icons --tree"
-alias lla="exa -a -l -g --icons --tree --level=2"
+alias lt="exa -l -g --icons --tree"
+alias lta="exa -a -l -g --icons --tree --level=2"
 
 # change directory aliases
 alias gitni="cd ~/Development/Projects/Git/github-nifranz/"
