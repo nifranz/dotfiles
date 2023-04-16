@@ -19,6 +19,7 @@ alias vm="vboxmanage"
 alias rmnode="rm -rf package-lock.json package.json node_modules"
 alias chx="chmod +x"
 alias rvsc="rcode"
+alias o="open ."
 
 # exa aliases
 alias ls="exa -l -g --icons"
