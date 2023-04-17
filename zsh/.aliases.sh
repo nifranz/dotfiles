@@ -29,7 +29,4 @@ alias lt="exa -l -g --icons --tree"
 alias lta="exa -a -l -g --icons --tree --level=2"
 
 # change directory aliases
-alias gitni="cd ~/Development/Projects/Git/github-nifranz/"
-alias gitup="cd ~/Development/Projects/Git/upgit-nifranz/"
-alias foundry="cd ~/Development/Projects/Local/Foundry/FoundryVTT-10.291; npm run start"
-alias dotf="cd ~/.dotfiles"
+alias foundry="sh -c 'cd ~/dev/ressources/Foundry/FoundryVTT-10.291; npm run start'"
