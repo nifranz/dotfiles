@@ -104,6 +104,9 @@ echo "configuring npm"
 mkdir $HOME/.npm-packages
 ln -sv "$HOME/.dotfiles/.npmrc" "$HOME/.npmrc"
 
+echo "Creating default directories"
+mkdir $HOME/dev; cd $HOME/dev;
+mkdir config ressources projects uni;
 
 echo "\nAll installations done. For the changes to take effect, please exit and reopen your terminal.\n"
 
