@@ -1,0 +1,6 @@
+shift + cmd - i : /Users/niklas/dev/config/dotfiles/zsh/bin/toggleshelly
+ctrl + cmd - j : osascript /Users/niklas/dev/config/dotfiles/skhd/helper/focusapp.scpt "Brave Browser"
+ctrl + cmd - k : osascript /Users/niklas/dev/config/dotfiles/skhd/helper/focusapp.scpt "Code"
+ctrl + cmd - l : osascript /Users/niklas/dev/config/dotfiles/skhd/helper/focusapp.scpt "iTerm2"
+ctrl + cmd - s : osascript /Users/niklas/dev/config/dotfiles/skhd/helper/focusapp.scpt "Spotify"
+ctrl + cmd - d : osascript /Users/niklas/dev/config/dotfiles/skhd/helper/focusapp.scpt "Discord"
