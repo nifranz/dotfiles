@@ -1,5 +1,5 @@
 # Installing dependencies
-if [[ $(uname) = "Darwin" ]]; then
+if [ $(uname) = "Darwin" ]; then
     # Installing dependencies on macOS with homebrew
     echo "installing brew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -18,6 +18,7 @@ if [[ $(uname) = "Darwin" ]]; then
     brew install node 
     brew install mysql 
     brew install php
+    brew install skhd
 
     echo "installing gui apps with brew ..."
     brew install --cask iterm2
@@ -41,8 +42,10 @@ if [[ $(uname) = "Darwin" ]]; then
     echo "linking karabiner keymaps"
     ln -sv "~/.dotfiles/karabiner/umlaute_remap.json" "~/.config/karabiner/assets/complex_modifications/umlaute_remap.json"
 
+    echo "linking skhd config"
+    ln -sv "~/.dotfiles/skhd/.skhdrc ~/.config/skhd/.skhdrc"
 
-elif [[ $(uname) = "Linux" ]]; then
+elif [ $(uname) = "Linux" ]; then
     # Installing dependencies on Linux with apt-get
 
     echo "installing for linux"
@@ -112,7 +115,7 @@ echo "\nAll installations done. For the changes to take effect, please exit and 
 
 echo "A powerline10k configuration file has been copied to your home directory. If you want to configure p10k yourself, please execute 'p10k configure'".
 
-if [[ $(uname) = "Darwin" ]]; then
+if [ $(uname) = "Darwin" ]; then
     echo "To enable custom karabiner keymaps, please activate them in karabiner complex keymap section."
     echo "To configure iterm, import the profile 'iterm2/iterm2-profile.json' as well as the preferred color theme from 'iterm2/colors' in the iterm-gui."
 fi
