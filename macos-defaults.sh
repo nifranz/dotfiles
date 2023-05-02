@@ -7,7 +7,7 @@ fi
 
 # VSCODE
 # enable repeated key inputs by holding down a key in vscode
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool true
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 # FINDER
 # always show file extensions 
