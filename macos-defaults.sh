@@ -30,3 +30,8 @@ killall Finder
 # MENUBAR 
 # flash time seperator every second
 defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "true" && killall SystemUIServer
+
+
+# DOCK
+defaults write com.apple.dock autohide-time-modifier -int 0;killall Dock
+defaults write com.apple.dock autohide-delay -float 0; killall Dock
