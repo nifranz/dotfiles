@@ -81,7 +81,7 @@ plugins=(
 	git
 	pip
 	iterm2
-	exa-zsh
+#	exa-zsh
 	z
     vscode
     zsh-autosuggestions
