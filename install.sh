@@ -1,4 +1,9 @@
 # Installing dependencies
+echo "Creating default directories"
+mkdir $HOME/dev
+mkdir $HOME/dev/config $HOME/dev/ressources $HOME/dev/projects $HOME/dev/uni;
+mkdir $HOME/.config
+
 if [ $(uname) = "Darwin" ]; then
     # Installing dependencies on macOS with homebrew
     echo "installing brew"
@@ -18,7 +23,8 @@ if [ $(uname) = "Darwin" ]; then
     brew install node 
     brew install mysql 
     brew install php
-    brew install skhd
+#   brew install skhd
+    brew install koekeishiya/formulae/skhd
 
     echo "installing gui apps with brew ..."
     brew install --cask iterm2
@@ -26,7 +32,7 @@ if [ $(uname) = "Darwin" ]; then
     brew install --cask karabiner-elements
 
     echo "installing fonts ..."
-    brew install font-hack
+    brew install font-hack-nerd-font
 
     # echo "installing other GUI Apps with homebrew ..."
     # ~/.dotfiles/install-apps.sh
@@ -40,10 +46,13 @@ if [ $(uname) = "Darwin" ]; then
     ~/.dotfiles/macos-defaults.sh
 
     echo "linking karabiner keymaps"
-    ln -sv "~/.dotfiles/karabiner/umlaute_remap.json" "~/.config/karabiner/assets/complex_modifications/umlaute_remap.json"
+    mkdir -p $HOME/.config/karabiner/assets/complex_modifications/
+    ln -sv "$HOME/.dotfiles/karabiner/umlaute_remap.json" "$HOME/.config/karabiner/assets/complex_modifications/umlaute_remap.json"
 
-    echo "linking skhd config"
+    echo "configuring skhd"
+    mkdir -p $HOME/.config/skhd
     ln -sv "~/.dotfiles/skhd/.skhdrc ~/.config/skhd/.skhdrc"
+    skhd --start-service
 
 elif [ $(uname) = "Linux" ]; then
     # Installing dependencies on Linux with apt-get
@@ -75,7 +84,7 @@ echo "linking configurations"
 echo "installing oh-my-zsh"
 export RUNZSH=no
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-rm "$HOME/.zshrc"
+mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
 ln -sv "$HOME/.dotfiles/zsh/.zshrc" "$HOME/.zshrc"
 ln -sv "$HOME/.dotfiles/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 
@@ -89,7 +98,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 echo "zsh configuration done!"
 
 echo "configuring git"
-rm "$HOME/.gitconfig"
+mv "$HOME/.gitconfig" "$HOME/.gitconfig.bak"
 ln -sv "$HOME/.dotfiles/git/.gitconfig" "$HOME/.gitconfig"
 
 echo "configuring tmux"
@@ -101,15 +110,13 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sh -c "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh"
 
 echo "configuring helix"
+mkdir -p "$HOME/.config/helix/"
 ln -sv "$HOME/.dotfiles/helix-editor/config.toml" "$HOME/.config/helix/config.toml"
 
 echo "configuring npm"
-mkdir $HOME/.npm-packages
+mkdir "$HOME/.npm-packages"
 ln -sv "$HOME/.dotfiles/.npmrc" "$HOME/.npmrc"
 
-echo "Creating default directories"
-mkdir $HOME/dev; cd $HOME/dev;
-mkdir config ressources projects uni;
 
 echo "\nAll installations done. For the changes to take effect, please exit and reopen your terminal.\n"
 
