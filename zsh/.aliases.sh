@@ -29,4 +29,4 @@ alias lt="exa -l -g --icons --tree"
 alias lta="exa -a -l -g --icons --tree --level=2"
 
 # change directory aliases
-alias foundry="sh -c 'cd ~/dev/ressources/Foundry/FoundryVTT-10.291; npm run start'"
+alias foundry="sh -c 'cd ~/dev/ressources/foundry/foundry-app; npm run start'"
