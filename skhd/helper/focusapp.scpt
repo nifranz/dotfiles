@@ -10,7 +10,7 @@ on run argv
     end tell
 
     -- get the last opened app from file 
-    set lastApp to do shell script "less /Users/niklas/dev/config/dotfiles/skhd/helper/lastapp.txt"
+    set lastApp to do shell script "less $HOME/dev/config/dotfiles/skhd/helper/lastapp.txt"
     --display dialog "current: " & currentApp & " commandApp: " & appName & " lastApp: " & lastApp 
     
     if  (currentApp as text) contains appName then
@@ -19,9 +19,9 @@ on run argv
         --    set visible of every window of process (appName as text) to false
         --end tell
         tell application lastApp to activate
-        do shell script "echo " & currentApp & " > /Users/niklas/dev/config/dotfiles/skhd/helper/lastapp.txt"
+        do shell script "echo " & currentApp & " > $HOME/dev/config/dotfiles/skhd/helper/lastapp.txt"
     else
         tell application appName to activate
-        do shell script "echo " & currentApp & " > /Users/niklas/dev/config/dotfiles/skhd/helper/lastapp.txt" 
+        do shell script "echo " & currentApp & " > $HOME/dev/config/dotfiles/skhd/helper/lastapp.txt" 
     end if
 end run
