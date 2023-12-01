@@ -11,6 +11,7 @@ on run argv
 
     -- get the last opened app from file 
     set lastApp to do shell script "less $HOME/dev/config/dotfiles/skhd/helper/lastapp.txt"
+    
     --display dialog "current: " & currentApp & " commandApp: " & appName & " lastApp: " & lastApp 
     
     if  (currentApp as text) contains appName then
