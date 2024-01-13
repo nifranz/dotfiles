@@ -70,7 +70,7 @@ elif [ $(uname) = "Linux" ]; then
     sudo apt-get install mysql 
     sudo apt-get install php
 
-    sudo apt-get install code
+    # sudo apt-get install code
 
     sudo apt-get install fonts-hack-ttf
 else
@@ -85,7 +85,7 @@ echo "installing oh-my-zsh"
 export RUNZSH=no
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
-ln -sv "$HOME/.dotfiles/zsh/.zshrc" "$HOME/.zshrc"
+echo "source ~/.dotfiles/zsh/.zshrc " > "$HOME/.zshrc"
 ln -sv "$HOME/.dotfiles/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 
 echo "installing custom oh-my-zsh plugins"
