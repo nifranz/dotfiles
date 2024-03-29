@@ -48,6 +48,7 @@ if [ $(uname) = "Darwin" ]; then
     echo "linking karabiner keymaps"
     mkdir -p $HOME/.config/karabiner/assets/complex_modifications/
     ln -sv "$HOME/.dotfiles/karabiner/umlaute_remap.json" "$HOME/.config/karabiner/assets/complex_modifications/umlaute_remap.json"
+    ln -sv "$HOME/.dotfiles/karabiner/powerkeys.json" "$HOME/.config/karabiner/assets/complex_modifications"
 
     echo "configuring skhd"
     mkdir -p $HOME/.config/skhd
