@@ -12,3 +12,7 @@ export PATH="$PATH:/opt/homebrew/bin"
 
 
 export PATH="$PATH:/not/a/directory/ever"
+
+export PATH="$PATH:/Users/nifranz/Library/Python/3.9/bin"
+
+export PATH="$PATH:/Applications/VMware\ Fusion.app/Contents/Library"
