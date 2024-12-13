@@ -16,15 +16,10 @@ if [ $(uname) = "Darwin" ]; then
     echo "install cli apps"
     brew install git 
     brew install tmux
-    brew install exa
     brew install z
     brew install neovim 
     brew install helix
     brew install node 
-    brew install mysql 
-    brew install php
-#   brew install skhd
-    brew install koekeishiya/formulae/skhd
 
     echo "installing gui apps with brew ..."
     brew install --cask iterm2
@@ -50,11 +45,6 @@ if [ $(uname) = "Darwin" ]; then
     ln -sv "$HOME/.dotfiles/karabiner/umlaute_remap.json" "$HOME/.config/karabiner/assets/complex_modifications/umlaute_remap.json"
     ln -sv "$HOME/.dotfiles/karabiner/powerkeys.json" "$HOME/.config/karabiner/assets/complex_modifications"
     ln -sv "$HOME/.dotfiles/karabiner/powerkeys2.json" "$HOME/.config/karabiner/assets/complex_modifications"
-
-    echo "configuring skhd"
-    mkdir -p $HOME/.config/skhd
-    ln -sv "~/.dotfiles/skhd/.skhdrc ~/.config/skhd/.skhdrc"
-    skhd --start-service
 
 elif [ $(uname) = "Linux" ]; then
     # Installing dependencies on Linux with apt-get
