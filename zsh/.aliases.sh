@@ -22,11 +22,6 @@ alias rvsc="rcode"
 alias o="open ."
 
 # exa aliases
-alias ls="exa -l -g --icons"
-alias lsa="exa -a -l -g --icons"
-
-alias lt="exa -l -g --icons --tree"
-alias lta="exa -a -l -g --icons --tree --level=2"
 
 # change directory aliases
 alias foundry="sh -c 'cd ~/dev/ressources/foundry/foundry-app; npm run start'"
