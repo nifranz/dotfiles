@@ -1,0 +1,35 @@
+{
+    "title": "PowerKeys2",
+    "rules": [
+        {
+            "description": "caps lock -> powerkeys",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command",
+                            "modifiers": [
+                                "left_control"
+                            ],
+                            "repeat": true
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "escape"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}
