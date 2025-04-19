@@ -9,7 +9,7 @@ alias gcm="git commit -m"
 alias ga="git add -A"
 alias gp="git push"
 alias grsuo="git remote set-url origi"
-alias reload="source ~/.zshrc"
+alias reload="source ~/.config/fish/config.fish"
 alias ndev="npm run dev"
 alias vim="nvim"
 alias re="tmux a"
@@ -25,3 +25,6 @@ alias o="open ."
 
 # change directory aliases
 alias foundry="sh -c 'cd ~/dev/ressources/foundry/foundry-app; npm run start'"
+
+# different nvim configurations
+alias vim='NVIM_APPNAME=lvim'

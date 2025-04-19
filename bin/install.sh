@@ -16,6 +16,7 @@ if [ $(uname) = "Darwin" ]; then
     echo "install cli apps"
     brew install git 
     brew install tmux
+    brew install fish
     brew install z
     brew install neovim 
     brew install helix
@@ -51,7 +52,7 @@ elif [ $(uname) = "Linux" ]; then
 
     echo "installing for linux"
 
-    sudo apt-get install zsh
+    sudo apt-get install fish
     sudo apt-get install tmux
     sudo apt-get install exa
     sudo apt-get install z
@@ -73,21 +74,10 @@ fi
 echo "configuring zsh ..."
 echo "linking configurations"
 
-echo "installing oh-my-zsh"
-export RUNZSH=no
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
-echo "source ~/.dotfiles/zsh/.zshrc " > "$HOME/.zshrc"
-ln -sv "$HOME/.dotfiles/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
-
-echo "installing custom oh-my-zsh plugins"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/MohamedElashri/exa-zsh ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/exa-zsh
-
-echo "installing custom oh-my-zsh themes"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-echo "zsh configuration done!"
+echo "Linking fish user configurations ..."
+echo 'source "$HOME/.dotfiles/fish/user.config.fish"' >> "$HOME/.config/fish/config.fish"
+echo /usr/local/bin/fish | sudo tee -a /etc/shells
+echo "Done!"
 
 echo "configuring git"
 mv "$HOME/.gitconfig" "$HOME/.gitconfig.bak"
@@ -109,6 +99,7 @@ echo "configuring npm"
 mkdir "$HOME/.npm-packages"
 ln -sv "$HOME/.dotfiles/.npmrc" "$HOME/.npmrc"
 
+chsh -s /usr/local/bin/fish
 
 echo "\nAll installations done. For the changes to take effect, please exit and reopen your terminal.\n"
 

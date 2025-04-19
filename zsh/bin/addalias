@@ -1,5 +1,0 @@
-if [ $# -ne 2 ]; then
-    echo "usage: addalias [alias-name] [command]"
-else
-    echo alias $1='"'$2'"' >> $df/zsh/.aliases.sh
-fi

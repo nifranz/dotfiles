@@ -1,1 +1,0 @@
-response_json=$(curl -X POST -H "Content-Type: application/json" -d "turn=toggle" http://192.168.178.146/relay/0)
