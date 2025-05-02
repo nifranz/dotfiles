@@ -27,4 +27,8 @@ alias o="open ."
 alias foundry="sh -c 'cd ~/dev/ressources/foundry/foundry-app; npm run start'"
 
 # different nvim configurations
-alias vim='NVIM_APPNAME=lvim'
+alias vim='NVIM_APPNAME=lvim nvim'
+
+alias d-up='docker compose up -d'
+alias d-down='docker compose down'
+alias d-restart='docker compose down && docker compose up -d'

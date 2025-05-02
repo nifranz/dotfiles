@@ -54,5 +54,7 @@ function config
 
     echo "Opening $filePath with $editor ..."
     command $editor $filePath
+    echo "Reloading fish environment ..."
     echo "Done!"
+    reload
 end

@@ -15,6 +15,8 @@ end
 export tide_git_icon=''
 
 if status is-interactive
-and not set -q TMUX
+    and not set -q TMUX
     exec tmux
 end
+set -U fish_greeting
+set -U fish_greeting 'Hello, Worlds!'
