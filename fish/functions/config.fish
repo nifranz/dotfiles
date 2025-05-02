@@ -1,5 +1,5 @@
 function config
-    set config_files "fish user config" "fish aliases" "fish exports" "ssh hosts" "paths"
+    set config_files "fish user config" "fish aliases" "fish exports" "ssh hosts" paths
 
     echo "Select a config file:"
     for i in (seq (count $config_files))
@@ -28,7 +28,7 @@ function config
             set filePath "$HOME/.dotfiles/fish/exports.fish"
         case "ssh hosts"
             set filePath "$HOME/.ssh/config"
-        case "paths"
+        case paths
             set filePath "$HOME/.dotfiles/fish/paths.fish"
     end
 
@@ -37,7 +37,7 @@ function config
         return 1
     end
 
-    set editors "nvim" "code" "nano"
+    set editors nvim vim code nano
     echo "Select an editor:"
     for i in (seq (count $editors))
         echo "$i) $editors[$i]"
