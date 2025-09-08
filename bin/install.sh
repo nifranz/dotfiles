@@ -21,6 +21,7 @@ if [ $(uname) = "Darwin" ]; then
     brew install neovim 
     brew install helix
     brew install node 
+    brew install hyfetch
 
     echo "installing gui apps with brew ..."
     brew install --cask iterm2
@@ -54,13 +55,11 @@ elif [ $(uname) = "Linux" ]; then
 
     sudo apt-get install fish
     sudo apt-get install tmux
-    sudo apt-get install exa
     sudo apt-get install z
     sudo apt-get install git
     sudo apt-get install neovim 
     sudo apt-get install helix
     sudo apt-get install node 
-    sudo apt-get install mysql 
     sudo apt-get install php
 
     # sudo apt-get install code

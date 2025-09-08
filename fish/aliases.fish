@@ -31,3 +31,5 @@ alias vim='NVIM_APPNAME=lvim nvim'
 alias d-up='docker compose up -d'
 alias d-down='docker compose down'
 alias d-restart='docker compose down && docker compose up -d'
+
+alias neofetch="echo 'running hyfetch...'; hyfetch"

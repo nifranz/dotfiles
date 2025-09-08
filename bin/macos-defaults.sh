@@ -35,8 +35,10 @@ defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "true" && k
 # DOCK
 defaults write com.apple.dock autohide-time-modifier -int 0;killall Dock
 defaults write com.apple.dock autohide-delay -float 0; killall Dock
+defaults write com.apple.dock expose-group-apps -bool true && killall Dock # mission control group apps
 
 
 # SYSTEM
 # set system accent color to green
 defaults write 'Apple Global Domain' AppleAccentColor 3
+defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer # displays have no seperate spaces

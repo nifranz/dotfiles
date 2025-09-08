@@ -22,3 +22,7 @@ if status is-interactive
 end
 set -U fish_greeting
 set -U fish_greeting 'Hello, Worlds!'
+
+# set ctrl-del and cmd-del to backward-kill
+bind ctrl-_ backward-kill-path-component # hex code: 0x1f
+bind ctrl-\] backward-kill-line # hex code: 0x1d
