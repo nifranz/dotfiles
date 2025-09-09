@@ -122,7 +122,7 @@ deps install_brew
 install_gui(){
     sudo -v
     load_brew || return 1
-    brew install --cask iterm2 spotify visual-studio-code karabiner-elements
+    brew install --cask raycast iterm2 spotify visual-studio-code karabiner-elements
 }
 
 task install_other
@@ -264,7 +264,7 @@ setup_fish_shell(){
       run $FISH_BIN -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher" || return 1
     fi
     info installing fish tide
-    run $FISH_BIN -c "fisher install IlanCosman/tide@v7" || return 1
+    run $FISH_BIN -c "fisher install IlanCosman/tide@v6" || return 1
 }
 
 ### ---------- groupings ----------
