@@ -117,12 +117,12 @@ install_cli(){
   run brew install --cask font-hack-nerd-font || return 1
 }
 
-task install_gui "Install GUI Apps"
+task install_casks "Install GUI Apps"
 deps install_brew
-install_gui(){
+install_casks(){
     sudo -v
     load_brew || return 1
-    brew install --cask raycast iterm2 spotify visual-studio-code karabiner-elements
+    brew install --cask brave-browser raycast iterm2 spotify visual-studio-code karabiner-elements
 }
 
 task install_other
@@ -268,7 +268,7 @@ setup_fish_shell(){
 }
 
 ### ---------- groupings ----------
-group brew "install_brew brew_taps install_cli install_gui"
+group brew "install_brew brew_taps install_cli install_casks"
 group base "setup_dotfiles"
 group mac "macos_defaults"
 
