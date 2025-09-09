@@ -139,7 +139,7 @@ install_other(){
     if command -v fisher >/dev/null 2>&1; then
         info "fisher already installed"
     else 
-      run curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher || return 1
+      run "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher" || return 1
     fi
     info installing fish tide
     run fisher install IlanCosman/tide@v6 || return 1
