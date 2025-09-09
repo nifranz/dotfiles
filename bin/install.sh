@@ -4,6 +4,10 @@ mkdir $HOME/dev
 mkdir $HOME/dev/config $HOME/dev/ressources $HOME/dev/projects $HOME/dev/uni;
 mkdir $HOME/.config
 
+set -euo pipefail
+
+trap 'echo "❌ Error on line $LINENO: $BASH_COMMAND"' ERR
+
 if [ $(uname) = "Darwin" ]; then
     # Installing dependencies on macOS with homebrew
     echo "installing brew"
@@ -11,6 +15,9 @@ if [ $(uname) = "Darwin" ]; then
 
     echo "adding additional brew repositories"
     /bin/bash -c "brew tap homebrew/cask-fonts"
+
+    export PATH="/opt/homebrew/bin:$PATH"
+    export PATH="/usr/local/bin:$PATH"
 
     echo "installing apps with brew ..."
     echo "install cli apps"
@@ -99,6 +106,9 @@ mkdir "$HOME/.npm-packages"
 ln -sv "$HOME/.dotfiles/.npmrc" "$HOME/.npmrc"
 
 chsh -s /usr/local/bin/fish
+
+echo "installing keyboard layouts"
+cp $HOME/.dotfiles/keyboard-layouts/* "/Library/Keyboard Layouts/"  
 
 echo "\nAll installations done. For the changes to take effect, please exit and reopen your terminal.\n"
 
