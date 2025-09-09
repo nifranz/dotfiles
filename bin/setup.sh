@@ -134,16 +134,6 @@ install_other(){
       run git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || return 1
       run sh -c "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh" || return 1
     fi
-
-    info installing fisher
-    if command -v fisher >/dev/null 2>&1; then
-        info "fisher already installed"
-    else 
-      run "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher" || return 1
-    fi
-    info installing fish tide
-    run fisher install IlanCosman/tide@v6 || return 1
-
 }
 
 # 4) Dotfiles setup (unrelated to brew)
@@ -266,6 +256,15 @@ setup_fish_shell(){
     if ! grep -qxF "$LINE" "$FISH_CONFIG" 2>/dev/null; then
         echo "$LINE" >> "$FISH_CONFIG"
     fi
+
+    info installing fisher
+    if command -v fisher >/dev/null 2>&1; then
+        info "fisher already installed"
+    else 
+      run $FISH_BIN -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher" || return 1
+    fi
+    info installing fish tide
+    run $FISH_BIN -c "fisher install IlanCosman/tide@v7" || return 1
 }
 
 ### ---------- groupings ----------
