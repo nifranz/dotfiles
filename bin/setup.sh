@@ -126,9 +126,21 @@ install_gui(){
     brew install --cask iterm2 spotify visual-studio-code karabiner-elements
 }
 
+task install_other
 install_other(){
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    sh -c "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh"
+    info installing tmux plugin
+    run git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || return 1
+    run sh -c "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh" || return 1
+
+    info installing fisher
+    if command -v fisher >/dev/null 2>&1; then
+        info "fisher already installed"
+    else 
+      run curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher || return 1
+    fi
+    info installing fish tide
+    run fisher install IlanCosman/tide@v6 || return 1
+
 }
 
 # 4) Dotfiles setup (unrelated to brew)
