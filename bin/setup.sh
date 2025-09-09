@@ -35,6 +35,7 @@ declare -a SKIPPED=()
 _in_list(){ case " $1 " in *" $2 "*) return 0;; *) return 1;; esac; }
 
 _run_task(){
+  sudo -v
   local t="$1"
   # already processed?
     for r in "${RUN_DONE[@]:-}"; do
@@ -69,7 +70,7 @@ run_group(){
   for t in $list; do _run_task "$t"; done
 }
 
-### ---------- helpers you’ll use inside tasks ----------
+### ---------- helpers ----------
 # Run a command loudly, show it before executing, and propagate failures.
 run(){ echo "+ $*"; "$@"; }
 
@@ -90,7 +91,6 @@ load_brew(){
 ## ------ TASKS ------ 
 task install_brew "Install Homebrew"
 install_brew(){
-  # Use official installer
     if command -v brew >/dev/null 2>&1; then
         info "Homebrew already installed"
         return 0;
@@ -113,7 +113,6 @@ task install_cli "Install CLI tools"
 deps install_brew brew_taps
 install_cli(){
   load_brew || return 1
-  # Example set — any failure marks the whole task as failed, dependents will skip
   run brew install fish tmux git wget neovim helix node hyfetch || return 1
   run brew install --cask font-hack-nerd-font || return 1
 }
@@ -128,9 +127,13 @@ install_gui(){
 
 task install_other
 install_other(){
-    info installing tmux plugin
-    run git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || return 1
-    run sh -c "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh" || return 1
+    info installing TPM tmux plugin
+    if [ -d "$HOME/.tmux/plugins/tpm" ]; then
+        info TPM already installed.
+    else
+      run git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || return 1
+      run sh -c "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh" || return 1
+    fi
 
     info installing fisher
     if command -v fisher >/dev/null 2>&1; then
@@ -145,7 +148,6 @@ install_other(){
 
 # 4) Dotfiles setup (unrelated to brew)
 task setup_dotfiles "Symlink dotfiles"
-# no deps -> runs even if brew flow fails
 setup_dotfiles(){
   run mkdir -p "$HOME/.config $HOME/dev/config $HOME/dev/ressources $HOME/dev/projects $HOME/dev/uni" || return 1
   
@@ -170,12 +172,11 @@ setup_dotfiles(){
   run ln -svnf "$HOME/.dotfiles/karabiner/" "$HOME/.config/karabiner/assets/complex_modifications" || return 1
 
   info Installing keyboard layouts ...
-  run cp $HOME/.dotfiles/keyboard-layouts/* "/Library/Keyboard Layouts/" || return 1
+  run sudo cp $HOME/.dotfiles/keyboard-layouts/* "/Library/Keyboard Layouts/" || return 1
 
   return 0
 }
 
-# 5) Mac defaults (separate group so you can run independently)
 task macos_defaults "Set macOS defaults (Dock, Finder, etc)"
 macos_defaults(){
     if [[ $(uname) != "Darwin" ]]; then
@@ -221,11 +222,11 @@ macos_defaults(){
     defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer # displays have no seperate spaces
 }
 
+task setup_fish_shell
 setup_fish_shell(){
     if ! command -v fish >/dev/null 2>&1; then
         info "Installing fish shell with Homebrew..."
         run brew install fish
-        # refresh PATH (important if fish was just added)
         load_brew || true
     else
         info "fish already installed."
