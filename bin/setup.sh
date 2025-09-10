@@ -140,6 +140,7 @@ install_other(){
 task setup_dotfiles "Symlink dotfiles"
 setup_dotfiles(){
   run mkdir -p "$HOME/.config $HOME/dev/config $HOME/dev/ressources $HOME/dev/projects $HOME/dev/uni" || return 1
+  run ln -svf "$HOME/.dotfiles/" "$HOME/dev/config/dotfiles" || return 1
   
   info configuring git files ...
   run mv "$HOME/.gitconfig" "$HOME/.gitconfig.bak" || return 1
@@ -159,7 +160,8 @@ setup_dotfiles(){
 
   info setting up karabiner files ...
   run mkdir -p $HOME/.config/karabiner/assets/ || return 1
-  run ln -svnf "$HOME/.dotfiles/karabiner/" "$HOME/.config/karabiner/assets/complex_modifications" || return 1
+  run ln -svf "$HOME/.dotfiles/karabiner/complex_modifications/" "$HOME/.config/karabiner/assets/complex_modifications" || return 1
+  run ln -sf "$HOME/.dotfiles/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json" || return 1
 
   info Installing keyboard layouts ...
   run sudo cp $HOME/.dotfiles/keyboard-layouts/* "/Library/Keyboard Layouts/" || return 1
@@ -196,12 +198,13 @@ macos_defaults(){
 
 
     # MENUBAR 
-    # flash time seperator every second
-    defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "true" && killall SystemUIServer
+    defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM HH:mm:ss"
+    defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "true"
+    killall SystemUIServer
 
 
     # DOCK
-    defaults write com.apple.dock autohide-time-modifier -int 0;killall Dock
+    defaults write com.apple.dock autohide-time-modifier -float 0.3;killall Dock
     defaults write com.apple.dock autohide-delay -float 0; killall Dock
     defaults write com.apple.dock expose-group-apps -bool true && killall Dock # mission control group apps
 
